@@ -1,8 +1,12 @@
+import "./Header.css"
 import Cart from "./Cart";
 
-function Header() {
+function Header(props) {
+    const { numberOfProducts } = props;
     return (
-        <Cart />
+        <header className='header'>
+            <Cart numberOfProducts= { numberOfProducts }/>
+        </header>
     )
 }
 

@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import './Cart.css'
 
-function Cart () {
-    const [count, setCount] = useState(0);
+function Cart(props) {
+    const { numberOfProducts } = props;
     return (
-        <p className='cart'> Cart {count} </p>
+        <section className='cart'>
+            <a href='' className='cart__link'> Cart </a>
+            <span className='cart__counter'> { numberOfProducts }</span>
+        </section>
     )
 }
 
