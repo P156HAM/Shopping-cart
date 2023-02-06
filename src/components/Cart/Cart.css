@@ -14,3 +14,10 @@
     border-radius: 50%;
     background-color: #fff;
 }
+
+.cartList {
+    width: auto;
+    height: auto;
+    background-color: #ed6896;
+    list-style: none;
+}

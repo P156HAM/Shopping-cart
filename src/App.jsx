@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Products from './components/Product'
-import Header from './components/Header'
+import Products from './components/Product/Product.jsx'
+import Header from './components/Header/Header.jsx'
 
 function App() {
   const products = [
@@ -32,6 +32,7 @@ function App() {
   ]
 
   const [cart, setCart] = useState([])
+  console.log(cart)
 
   function updateCart(book) {
     
@@ -41,12 +42,12 @@ function App() {
   }
   
   const productsComponents = products.map ((book) => {
-    return <Products book={ book } addToCart={ updateCart } key={ book.id } />
+    return <Products book={ book } addToCart={ updateCart } key={ book.id }/>
   })
 
   return (
     <div className="App">
-      <Header numberOfProducts={ cart.length }/>
+      <Header numberOfProducts={ cart.length } cart={ cart }/>
       <main className='products'>
         { productsComponents }
       </main>
