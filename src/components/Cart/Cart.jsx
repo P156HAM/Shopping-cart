@@ -6,9 +6,10 @@ function Cart(props) {
 
 
     const cartComponenets = cart.map ((product, index) => {
-        return <AddedProduct title={product.title} index={ index } />
+        return <AddedProduct cart={ cart } product={ product } title={product.title} index={ index } />
       })
 
+   
     return (
         <section className='cart'>
             <span href='' className='cart__link'> Cart </span>

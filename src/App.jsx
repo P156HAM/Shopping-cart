@@ -35,10 +35,16 @@ function App() {
   console.log(cart)
 
   function updateCart(book) {
+    if (!cart.includes(book)) {
+      setCart((currentCart) => { 
+        return [...currentCart, book];
+      })
+    } else {
+      setCart((currentCart) => {
+        return [...currentCart];
+      })
+    }
     
-    setCart((currentCart) => {
-      return [...currentCart, book];
-    })
   }
   
   const productsComponents = products.map ((book) => {
@@ -47,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header numberOfProducts={ cart.length } cart={ cart }/>
+      <Header numberOfProducts={ cart.length } cart={ cart } />
       <main className='products'>
         { productsComponents }
       </main>
