@@ -32,10 +32,9 @@ function App() {
   ]
 
   const [cart, setCart] = useState([])
-  console.log(cart)
 
   function updateCart(book) {
-    if (!cart.includes(book)) {
+    if (!cart.map(book=>book.id).includes(book.id)) {
       setCart((currentCart) => { 
         return [...currentCart, book];
       })
@@ -44,7 +43,6 @@ function App() {
         return [...currentCart];
       })
     }
-    
   }
   
   const productsComponents = products.map ((book) => {
