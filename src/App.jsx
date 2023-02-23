@@ -2,8 +2,12 @@ import { useState } from 'react'
 import './App.css'
 import Products from './components/Product/Product.jsx'
 import Header from './components/Header/Header.jsx'
+import { useSelector } from 'react-redux'
 
 function App() {
+
+  const cart = useSelector((state) => { return state.cart})
+
   const products = [
     {
       "id" : "book-1",
@@ -31,22 +35,9 @@ function App() {
     }
   ]
 
-  const [cart, setCart] = useState([])
-
-  function updateCart(book) {
-    if (!cart.map(book=>book.id).includes(book.id)) {
-      setCart((currentCart) => { 
-        return [...currentCart, book];
-      })
-    } else {
-      setCart((currentCart) => {
-        return [...currentCart];
-      })
-    }
-  }
   
   const productsComponents = products.map ((book) => {
-    return <Products book={ book } addToCart={ updateCart } key={ book.id }/>
+    return <Products cart={ cart } book={ book } key={ book.id }/>
   })
 
   return (
